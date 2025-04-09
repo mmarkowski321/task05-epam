@@ -1,14 +1,11 @@
-resource "azurerm_app_service_plan" "this" {
+resource "azurerm_service_plan" "this" {
   name                = var.name
   location            = var.location
   resource_group_name = var.resource_group_name
-  kind                = "Windows"
+  os_type             = "Windows"
 
-  sku {
-    tier     = upper(regex("^[a-zA-Z]+", var.sku))
-    size     = var.sku
-    capacity = var.worker_count
-  }
+  sku_name     = var.sku
+  worker_count = var.worker_count
 
   tags = var.tags
 }
