@@ -19,7 +19,7 @@ variable "app_service_plan_id" {
 }
 
 variable "allowed_ip_address" {
-  description = "IP address of the verification agent"
+  description = "Allowed IP address for verification agent"
   type        = string
 }
 
