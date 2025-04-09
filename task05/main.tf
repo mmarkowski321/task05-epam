@@ -23,6 +23,8 @@ module "app_service_plans" {
   sku                 = each.value.sku_name
   worker_count        = each.value.worker_count
   tags                = var.tags
+
+  depends_on = [module.resource_groups]
 }
 
 # Web Apps
@@ -36,6 +38,8 @@ module "web_apps" {
   app_service_plan_id = module.app_service_plans[each.value.plan_key].id
   allowed_ip_address  = var.verification_ip
   tags                = var.tags
+
+  depends_on = [module.app_service_plans]
 }
 
 # Traffic Manager
@@ -55,4 +59,6 @@ module "traffic_manager" {
       location         = v.location
     }
   }
+
+  depends_on = [module.web_apps]
 }
