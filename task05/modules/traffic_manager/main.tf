@@ -18,14 +18,12 @@ resource "azurerm_traffic_manager_profile" "this" {
 }
 
 resource "azurerm_traffic_manager_azure_endpoint" "endpoints" {
-  for_each = var.app_services
+  for_each   = var.app_services
 
-  name                = each.key
-  profile_name        = azurerm_traffic_manager_profile.this.name
-  resource_group_name = var.resource_group_name
-  type                = "azureEndpoints"
-  target_resource_id  = each.value.app_service_id
-  endpoint_location   = each.value.location
-  weight              = 100
-  priority            = 1
+  name       = each.key
+  profile_id = azurerm_traffic_manager_profile.this.id
+
+  target_resource_id = each.value.app_service_id
+  weight             = 100
+  priority           = 1
 }
