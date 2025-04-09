@@ -50,12 +50,12 @@ variable "tags" {
   type        = map(string)
 }
 
-variable "allow_ip" {
-  description = "Allowed IP address for access"
+variable "allow-ip" {
   type        = string
+  description = "Allowed IP address for access"
 }
 
-variable "allow_tm" {
-  description = "Service tag for Azure Traffic Manager"
+variable "allow-tm" {
   type        = string
+  description = "Service tag for Azure Traffic Manager"
 }
