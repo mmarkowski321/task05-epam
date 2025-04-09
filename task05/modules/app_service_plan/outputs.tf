@@ -1,4 +1,4 @@
 output "id" {
-  description = "The ID of the App Service Plan"
+  description = "App Service Plan ID"
   value       = azurerm_app_service_plan.this.id
 }

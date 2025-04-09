@@ -5,13 +5,10 @@ resource "azurerm_app_service_plan" "this" {
   kind                = "Windows"
 
   sku {
-    tier = split("_", var.sku)[0]
-    size = var.sku
+    tier     = upper(regex("^[a-zA-Z]+", var.sku))
+    size     = var.sku
     capacity = var.worker_count
   }
-
-  per_site_scaling = false
-  reserved         = false
 
   tags = var.tags
 }
