@@ -51,11 +51,11 @@ variable "tags" {
 }
 
 variable "allow_ip" {
-  type        = string
   description = "Allowed IP address for access"
+  type        = string
 }
 
 variable "allow_tm" {
-  type        = string
   description = "Service tag for Azure Traffic Manager"
+  type        = string
 }
