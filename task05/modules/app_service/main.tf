@@ -12,7 +12,7 @@ resource "azurerm_windows_web_app" "this" {
       for_each = [
         {
           name       = "allow-ip"
-          ip_address = var.allowed_ip_address
+          ip_address = "${var.allowed_ip_address}/32"
           priority   = 100
           action     = "Allow"
         },
