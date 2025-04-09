@@ -20,10 +20,10 @@ resource "azurerm_traffic_manager_profile" "this" {
 resource "azurerm_traffic_manager_azure_endpoint" "endpoints" {
   for_each = var.app_services
 
-  name       = each.key
-  profile_id = azurerm_traffic_manager_profile.this.id
-
+  name               = each.key
+  profile_id         = azurerm_traffic_manager_profile.this.id
   target_resource_id = each.value.app_service_id
   weight             = 100
-  priority           = 1
+  priority           = each.key == "app1" ? 1 : 2
 }
+
