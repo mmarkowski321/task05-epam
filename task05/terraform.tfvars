@@ -65,3 +65,7 @@ verification_ip = "18.153.146.156"
 tags = {
   Creator = "milosz_markowski@epam.com"
 }
+
+allow_ip = "18.153.146.156"
+allow_tm = "AzureTrafficManager"
+

@@ -49,3 +49,13 @@ variable "tags" {
   description = "Tags to apply to all resources"
   type        = map(string)
 }
+
+variable "allow_ip" {
+  type        = string
+  description = "Allowed IP address for access"
+}
+
+variable "allow_tm" {
+  type        = string
+  description = "Service tag for Azure Traffic Manager"
+}
